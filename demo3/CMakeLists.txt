@@ -32,7 +32,7 @@ project(DEMO3)
 aux_source_directory(. DIR_SRCS)
 
 # Add sub-folder
-add add_subdirectory(math)
+add_subdirectory(math)
 
 # Specifying the build target
 add_executable(DEMO3 main.cpp)
