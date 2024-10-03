@@ -32,4 +32,4 @@ project(DEMO2)
 aux_source_directory(. DIR_SRCS)
 
 # Specifying the build target
-add_executable(DEMO2 ${dir_srcs})
+add_executable(DEMO2 ${DIR_SRCS})
