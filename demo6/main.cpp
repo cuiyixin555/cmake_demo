@@ -25,10 +25,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#ifdef USE_MYMATH
-#include "math/MathFunctions.h"
-#else
+#ifdef HAVE_POW
 #include <math.h>
+#else
+#include <MathFunctions.h>
 #endif
 
 int main(int argc, char *argv[]) {
