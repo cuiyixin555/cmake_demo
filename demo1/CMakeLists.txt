@@ -25,7 +25,7 @@
 cmake_minimum_required (VERSION 2.8)
 
 # Project Info
-project(CMAKE_DEMO)
+project(DEMO1)
 
 # Specifying the build target
-add_executable(CMAKE_DEMO main.cpp)
+add_executable(DEMO1 main.cpp)
