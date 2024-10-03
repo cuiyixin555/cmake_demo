@@ -39,28 +39,25 @@ configure_file(
     "${PROJECT_BINARY_DIR}/config.h"
 )
 
-# Whether to use your own MathFunction library
-option(USE_MYMATH "Use provided math implementation" ON)
-
-# Whether add MathFunction library
-if(USE_MYMATH)
-    include_directories("${PROJECT_SOURCE_DIR}/math")
-    add_subdirectory(math)
-    set (EXTRA_LIBS ${EXTRA_LIBS} MathFunctions)
-endif(USE_MYMATH)
+# whether adding MathFunctions library
+if (NOT HAVE_POW)
+  include_directories ("${PROJECT_SOURCE_DIR}/math")
+  add_subdirectory (math)
+  set (EXTRA_LIBS ${EXTRA_LIBS} MathFunctions)
+endif (NOT HAVE_POW)
 
 # Find all source files in current folder
 # and save the name to DIR_SRCS variable
 aux_source_directory(. DIR_SRCS)
 
 # Specifying the build target
-add_executable(DEMO5 ${DIR_SRCS})
+add_executable(DEMO6 ${DIR_SRCS})
 
 # add link library
-target_link_libraries(DEMO5 ${EXTRA_LIBS})
+target_link_libraries(DEMO6 ${EXTRA_LIBS})
 
 # Specifying install path
-install (TARGETS DEMO5 DESTINATION bin)
+install (TARGETS DEMO6 DESTINATION bin)
 install (FILES "${PROJECT_BINARY_DIR}/config.h" DESTINATION include)
 
 # set gdb setting
@@ -72,27 +69,27 @@ set(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall")
 enable_testing()
 
 # testing programing run
-add_test (test_run DEMO5 5 2)
+add_test (test_run DEMO6 5 2)
 
 # testing info 
-add_test (test_usage DEMO5)
+add_test (test_usage DEMO6)
 set_tests_properties (test_usage PROPERTIES PASS_REGULAR_EXPRESSION "Usage: .* base exponent")
 
 # test 5^2
-add_test (test_5_2 DEMO5 5 2)
+add_test (test_5_2 DEMO6 5 2)
 set_tests_properties(test_5_2 PROPERTIES PASS_REGULAR_EXPRESSION "is 25")
 
 # test 10^5
-add_test (test_10_5 DEMO5 10 5)
+add_test (test_10_5 DEMO6 10 5)
 set_tests_properties(test_10_5 PROPERTIES PASS_REGULAR_EXPRESSION "is 100000")
 
 # TEST 2^10
-add_test (test_2_10 DEMO5 2 10)
+add_test (test_2_10 DEMO6 2 10)
 set_tests_properties(test_2_10 PROPERTIES PASS_REGULAR_EXPRESSION "is 1024")
 
 # define MACRO to simply testing
 macro (do_test arg1 arg2 result)
-    add_test (test_${arg1}_${arg2} DEMO5 ${arg1} ${arg2})
+    add_test (test_${arg1}_${arg2} DEMO6 ${arg1} ${arg2})
     set_tests_properties (test_${arg1}_${arg2} PROPERTIES PASS_REGULAR_EXPRESSION ${result})
 endmacro (do_test)
 
