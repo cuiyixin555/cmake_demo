@@ -7,3 +7,7 @@ $ cd demo${x} x=1,2,3,...8
 $ cmake .  
 $ make -j8  
 
+### Reference
+<<CMake 入门实战>>  
+https://www.hahack.com/codes/cmake/  
+
