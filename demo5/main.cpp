@@ -41,7 +41,7 @@ int main(int argc, char *argv[]) {
 
 #ifdef USE_MYMATH
   printf("Now we use our own Math library. \n");
-  double resukt = power(base, exponent);
+  double result = power(base, exponent);
 #else
   printf("Now we use the standard library. \n");
   double result = pow(base, exponent);

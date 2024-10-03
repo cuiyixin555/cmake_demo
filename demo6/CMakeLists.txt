@@ -25,7 +25,13 @@
 cmake_minimum_required (VERSION 2.8)
 
 # Project Info
-project(DEMO5)
+project(DEMO6)
+
+set (CMAKE_INCLUDE_CURRENT_DIR ON)
+
+# checking if system support pow function
+include (${CMAKE_ROOT}/Modules/CheckFunctionExists.cmake)
+check_function_exists (pow HAVE_POW)
 
 # Add a configuration header file to handle CMake settings for source code
 configure_file(
