@@ -21,15 +21,9 @@
 # SOFTWARE.
 #
 
-# Minimum CMake version required
-cmake_minimum_required (VERSION 2.8)
-
-# Project Info
-project(DEMO2)
-
 # Find all source files in current folder
 # and save the name to DIR_SRCS variable
-aux_source_directory(. DIR_SRCS)
+aux_source_directory(. DIR_LIB_SRCS)
 
-# Specifying the build target
-add_executable(DEMO2 ${dir_srcs})
+# Generate link library
+add_library(MathFunctions ${DIR_LIB_SRCS})

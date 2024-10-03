@@ -21,19 +21,11 @@
 // SOFTWARE.
 //
 
-#include "MathFunctions.h"
-
-double power(double base, int exponent) {
-  int result = base;
-  int i;
-
-  if (exponent == 0) {
-    return 1;
-  }
-
-  for (i = 1; i < exponent; i++) {
-    result = result * base;
-  }
-
-  return result;
-}
+/**
+ * @brief Calculate the power of number.
+ *
+ * @param base: Base value.
+ * @param exponent: Exponent value.
+ * @return double raised to the power exponent.
+ */
+double power(double base, int exponent);

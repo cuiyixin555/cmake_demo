@@ -25,11 +25,17 @@
 cmake_minimum_required (VERSION 2.8)
 
 # Project Info
-project(DEMO2)
+project(DEMO3)
 
 # Find all source files in current folder
 # and save the name to DIR_SRCS variable
 aux_source_directory(. DIR_SRCS)
 
+# Add sub-folder
+add add_subdirectory(math)
+
 # Specifying the build target
-add_executable(DEMO2 ${dir_srcs})
+add_executable(DEMO3 main.cpp)
+
+# add link library
+target_link_libraries(DEMO3 MathFunctions)
